@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Client Information Form</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+</head>
+<body>
+  <main class="form-container">
+    <header>
+      <img src="assets/banyan.jpg" alt="Banyan Tree Logo" class="logo" />
+      <h1>CLIENT INFORMATION FORM</h1>
+      <p>BANYAN WEB DESIGN</p>
+    </header>
+
+    <form>
+      <fieldset>
+        <legend>Personal Information</legend>
+
+        <label for="fullname">Full Name</label>
+        <input type="text" id="fullname" name="fullname" required />
+
+        <label for="company">Company/Organization (if any)</label>
+        <input type="text" id="company" name="company" />
+
+        <label for="position">Position/Role</label>
+        <input type="text" id="position" name="position" />
+
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" name="phone" required />
+
+        <label for="contact-method">Preferred Method of Contact</label>
+        <select id="contact-method" name="contact-method" required>
+          <option value="">Select Method of Contact</option>
+          <option>Email</option>
+          <option>Phone</option>
+          <option>Messaging App</option>
+        </select>
+      </fieldset>
+
+      <fieldset>
+        <legend>Project Details</legend>
+
+        <label for="project-name">Project Name/Title</label>
+        <input type="text" id="project-name" name="project-name" required />
+
+        <label for="service-type">Type of Service Required</label>
+        <select id="service-type" name="service-type" required>
+          <option value="">Select Type of Service</option>
+          <option>Web Development</option>
+          <option>Graphic Design</option>
+          <option>Branding</option>
+          <option>Marketing</option>
+        </select>
+
+        <label for="description">Brief Description of the Project</label>
+        <textarea id="description" name="description" rows="4" required></textarea>
+
+        <label for="audience">Target Audience</label>
+        <input type="text" id="audience" name="audience" required />
+
+        <label for="deadline">Deadline or Timeline</label>
+        <input type="date" id="deadline" name="deadline" required />
+
+        <label for="budget">Budget Range</label>
+        <select id="budget" name="budget" required>
+          <option value="">Select Budget Range</option>
+          <option>Below 10,000 pesos</option>
+          <option>10,000 pesos - 30,000 pesos</option>
+          <option>50,000+ pesos</option>
+        </select>
+      </fieldset>
+
+      <fieldset>
+        <legend>File & Content Provision</legend>
+
+        <label for="content-provided">Will you provide content (text, images, etc)?</label>
+        <select id="content-provided" name="content-provided" required>
+          <option value="">Select One</option>
+          <option>Yes</option>
+          <option>No</option>
+          <option>Partially</option>
+        </select>
+
+        <label for="brand-assets">Do you have brand assets (logo, colors, fonts)?</label>
+        <select id="brand-assets" name="brand-assets" required>
+          <option value="">Select One</option>
+          <option>Yes</option>
+          <option>Still in development</option>
+        </select>
+      </fieldset>
+
+      <fieldset>
+        <legend>Approvals & Follow-ups</legend>
+
+        <label for="approver">Who will approve designs or decisions on your side?</label>
+        <input type="text" id="approver" name="approver" required />
+
+        <label for="updates">How often do you prefer updates?</label>
+        <select id="updates" name="updates" required>
+          <option value="">Select Preferred Updates</option>
+          <option>Daily</option>
+          <option>Weekly</option>
+          <option>At key mists, only</option>
+        </select>
+      </fieldset>
+
+      <fieldset>
+        <legend>Signature (if printed)</legend>
+
+        <label for="signature">Client Signature</label>
+        <input type="text" id="signature" name="signature" placeholder="Type your name" />
+
+        <label for="date">Date</label>
+        <input type="date" id="date" name="date" />
+      </fieldset>
+
+      <button type="submit">Submit Form</button>
+    </form>
+  </main>
+
+  <div id="successModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn">&times;</span>
+      <h2>Thank you!</h2>
+      <p>Your form has been successfully submitted. We’ll reach out shortly to discuss your project and next steps.</p>
+    </div>
+  </div>
+
+  <script>
+    const form = document.querySelector("form");
+    const modal = document.getElementById("successModal");
+    const closeBtn = document.querySelector(".close-btn");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault(); 
+      modal.style.display = "block";
+      form.reset();
+    });
+
+    closeBtn.addEventListener("click", function () {
+      modal.style.display = "none";
+    });
+
+    window.addEventListener("click", function (event) {
+      if (event.target === modal) {
+        modal.style.display = "none";
+      }
+    });
+  </script>
+</body>
+</html>
